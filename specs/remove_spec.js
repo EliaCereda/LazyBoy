@@ -5,7 +5,11 @@ var db = require('./spec_helper').db,
 describe("Removing item", function () {
 
   before(function (done) {
-    Model.define('Car',{name: String, max_speed: Number});
+    Model.define('Car', {
+      name: { type: String, indexed: true },
+      max_speed: Number
+    });
+    
     Model.load(function () {
       done();
     });

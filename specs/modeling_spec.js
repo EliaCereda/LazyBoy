@@ -93,8 +93,8 @@ describe('Create Model', function () {
   it("Should create new model object with supplied values", function() {
     Model.define('User', {
       name: String,
-    surname: String,
-    age: String
+      surname: String,
+      age: String
     });
 
     var user = Model('User').create({name:"Kurt",surname: "Cobain", age: 31}); 

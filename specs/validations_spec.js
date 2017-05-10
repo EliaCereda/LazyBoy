@@ -7,12 +7,12 @@ describe("Model Validations", function () {
 
   before(function (done) {
     var Mailer = Model.define("Mailer", {
-      name: String,
-        email: String
+      name: { type: String, indexed: true },
+      email: String
     });
 
     Model.define("MailerZ", {
-      name: String,
+      name: { type: String, indexed: true },
       email: String
     });
 

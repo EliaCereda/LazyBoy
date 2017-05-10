@@ -5,14 +5,18 @@ var db = require('./spec_helper').db,
 
 describe("Finding by property", function () {
   before(function (done) {
-    Model.define("User", {name: String, surname: String});
+    Model.define("User", {
+      name: { type: String, indexed: true },
+      surname: { type: String, indexed: true },
+      age: Number
+    });
 
     Model.load(function () {
 
       var User = Model("User");
 
-      User.create({name:"Benjamin", surname:"Harper"}).save(function (){
-        User.create({name:"Joshua",surname:"James"}).save(function () {
+      User.create({ name:"Benjamin", surname:"Harper", age: 24 }).save(function (){
+        User.create({ name:"Joshua",surname:"James", age: 42 }).save(function () {
           done();
         });
 
@@ -62,6 +66,15 @@ describe("Finding by property", function () {
       done();
     });
   })
+
+  it("Should return 'missing_named_view' for properties that are not indexed", function (done) {
+    var User = Model("User");
+
+    User.where("age", 24, function (err, users) {
+      err.reason.should.equal("missing_named_view");
+      done();
+    });
+  });
 
   it("Should return 'missing_named_view' view not exist", function (done) {
     var User = Model("User");

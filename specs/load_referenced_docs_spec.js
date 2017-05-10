@@ -7,12 +7,12 @@ describe("Loading model with referenced models", function () {
 
     var Author = Model.define('Author', {
       name: String,
-        surname: String
+      surname: String
     });
 
     var Book = Model.define('Book', {
-      title: String,
-        author: {has_one: Author}
+      title: { type: String, indexed: true },
+      author: { has_one: Author }
     });
 
     Model.load(function () {
