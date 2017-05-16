@@ -25,10 +25,10 @@
     "cradle": ">=0.5.5",
     "async":">=0.1.9",
     "validator": "^0.3.4"
-    },
+  },
 
   "devDependencies": {
-      "mocha": "*",
-     "should": "*"
-    }
+    "mocha": "*",
+    "should": "*"
+  }
 }
