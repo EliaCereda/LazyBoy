@@ -12,7 +12,7 @@ describe("Simple Embedding of Single Doc", function () {
 
     AddressBook = Model.define("AddressBook", {
       name: String,
-                owner: {has_one: Owner}
+      owner: {has_one: Owner}
     });
 
     Model.load(function () { done(); });

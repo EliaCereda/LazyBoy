@@ -34,7 +34,7 @@ describe('Save callback',function () {
   it("Should call afterSave after save", function (done) {
     var Blog = Model('Blog');
 
-    Blog.afterSave(function () {done()});
+    Blog.afterSave(function () { done() });
 
     var blog_post = Blog.create({title: "hello again", post:"My 2nd demo post"});
     blog_post.save();
@@ -47,7 +47,7 @@ describe('Save callback',function () {
         url: String
     });
 
-    var blog_post = Blog2.create({title: "hello world", post:"My first demo post",url:"boom"});
+    var blog_post = Blog2.create({title: "hello world", post:"My first demo post", url:"boom"});
 
     blog_post.save(function (err, saved_blog_post) {
       saved_blog_post.url.should.equal("boom");

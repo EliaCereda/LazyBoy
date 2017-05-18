@@ -19,10 +19,9 @@ describe("Saving Item", function () {
 
     var user = Model('User').create({
       id : "EddieVedder",
-        name : "Eddie",
-        surname : "Vedder"
+      name : "Eddie",
+      surname : "Vedder"
     });
-
 
     user.save(function (err, result) {
       if (err) throw err;
@@ -39,8 +38,8 @@ describe("Saving Item", function () {
   it("Should create id for model if not defined", function (done) {
     Model.define('User_no_id', {
       id: String,
-    name: String,
-    surname: String,
+      name: String,
+      surname: String,
     });
 
     var user = Model('User_no_id').create({name: "John", surname: "Rambo"});
@@ -57,8 +56,8 @@ describe("Saving Item", function () {
   it("Should have a model type", function (done) {
     var user = Model('User').create({
       id : "Jimmy",
-        name : "Jimmy",
-        surname : "Page"
+      name : "Jimmy",
+      surname : "Page"
     });
 
     user.model_type.should.equal("User");
@@ -72,7 +71,6 @@ describe("Saving Item", function () {
       db.get(user.id,function (err, loaded_user) {
         loaded_user.model_type.should.equal("User");
         done();
-
       });
 
     });
@@ -82,8 +80,8 @@ describe("Saving Item", function () {
 
     var user = Model('User').create({
       id : "Jimi",
-        name : "Jimi",
-        surname : "Hendrix"
+      name : "Jimi",
+      surname : "Hendrix"
     });
 
     user.save(function (err, result) {
@@ -104,19 +102,19 @@ describe("Saving Item", function () {
   it("Should return a json version of model", function () {
     var user = Model('User').create({
       id : "Jimi",
-        name : "Jimi",
-        surname : "Hendrix"
+      name : "Jimi",
+      surname : "Hendrix"
     });
 
     var attr = {
       id : "Jimi",
-  name : "Jimi",
-  surname : "Hendrix"
+      name : "Jimi",
+      surname : "Hendrix"
     };
 
     var user_json = user.toJSON()
     user_json.name.should.equal(attr.name);
-  user_json.surname.should.equal(attr.surname);
+    user_json.surname.should.equal(attr.surname);
   })
 });
 
