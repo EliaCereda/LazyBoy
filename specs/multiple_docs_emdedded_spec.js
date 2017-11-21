@@ -9,7 +9,7 @@ describe("Saving multiple embedded docs", function () {
 
     Comment = Model.define("Comment", {
       name: String,
-            text: String
+      text: String
     });
 
     BlogPost = Model.define("BlogPost", {
